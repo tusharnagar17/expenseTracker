@@ -1,11 +1,10 @@
-import { View, Text } from 'react-native'
-import React from 'react'
-import { Stack } from 'expo-router'
+import { Slot } from 'expo-router';
 
-export default function AppLayout() {
+export default function Root() {
+  // Set up the auth context and render our layout inside of it.
   return (
-    <Stack>
-        <Stack.Screen name='(tabs)' options={{headerShown: false}} />
-    </Stack>
-  )
+    
+      <Slot />
+  
+  );
 }

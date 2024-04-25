@@ -3,11 +3,15 @@ import React, { useState } from 'react';
 import { View, Button, Platform, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 import { DateTimePickerEvent } from '@react-native-community/datetimepicker';
 
-const AddItemDate = () => {
-  const [date, setDate] = useState(new Date());
-  const [showPicker, setShowPicker] = useState(false);
+interface DateProps {
+  date: Date;
+  setDate: React.Dispatch<React.SetStateAction<Date>>;
+}
 
-  console.log(showPicker)
+const AddItemDate = ({date, setDate}: DateProps ) => {
+  const [showPicker, setShowPicker] = useState(false);
+  
+  // console.log(showPicker)
   const formattedDate = date.toLocaleDateString(undefined, {
     year: 'numeric',
     month: 'long',
@@ -32,7 +36,7 @@ const AddItemDate = () => {
         togglePicker()
     }
   }
-  console.log(date)
+  // console.log(date)
   return (
    <View>
     <TouchableOpacity onPress={togglePicker}>

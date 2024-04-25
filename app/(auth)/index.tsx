@@ -2,10 +2,8 @@ import { View, Text } from 'react-native'
 import React from 'react'
 import { Redirect } from 'expo-router'
 
-const HomePage = () => {
+export default function index() {
   return (
-    <Redirect href='/addItem' />
+    <Redirect href='/home' />
   )
 }
-
-export default HomePage

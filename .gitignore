@@ -4,6 +4,10 @@
 node_modules/
 tasks.md
 
+## prebuild file
+android/
+ios/
+
 # Expo
 .expo/
 dist/

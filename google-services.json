@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "134860642375",
+    "firebase_url": "https://expensetracker-80e41-default-rtdb.firebaseio.com",
+    "project_id": "expensetracker-80e41",
+    "storage_bucket": "expensetracker-80e41.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:134860642375:android:6a998afdfb942796a63962",
+        "android_client_info": {
+          "package_name": "com.codeit.expenseTracker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7ZF28rrofXDxeDPSSidltxanJ4ceuTF8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

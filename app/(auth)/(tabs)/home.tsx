@@ -5,13 +5,10 @@ import HomeTransaction from '@/components/HomeTransaction'
 import HomeOverview from '@/components/HomeOverview'
 import HomeHeader from '@/components/HomeHeader'
 
-
 export default function Home() {
 
-  
-
   return (
-    <ScrollView style={{flex: 1, marginTop: 60, margin: 10 }}>
+    <ScrollView nestedScrollEnabled={true} style={{flex: 1, marginTop: 60, margin: 10 }}>
       <HomeHeader />
       {/* HomeOverview Section */}
       <HomeOverview />

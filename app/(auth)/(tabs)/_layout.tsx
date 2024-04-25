@@ -8,16 +8,17 @@ import { Ionicons } from '@expo/vector-icons';
 
 export default function TabLayout() {
   return (
-    <Tabs screenOptions={{ tabBarActiveTintColor: "blue"}}>
+    <Tabs screenOptions={{ tabBarActiveTintColor: "blue",  }}>
+      
+      <Tabs.Screen name="home" 
+            options={{title: "Home", headerShown: false, tabBarIcon: ({color}) => (<FontAwesome name='home' size={30} />) }}
+        />
       <Tabs.Screen name="addItem" 
             options={{title: "Add new expense", headerTitleAlign: "center" ,tabBarIcon: ({color}) => (<FontAwesome name='plus' size={30} />)}}
         />
-        <Tabs.Screen name="home" 
-            options={{title: "Home", headerShown: false, tabBarIcon: ({color}) => (<FontAwesome name='home' size={30} />) }}
-        />
          
         <Tabs.Screen name="setting" 
-            options={{title: "Setting", tabBarIcon: ({color}) => (<Ionicons name='settings-outline' size={30} />)}}
+            options={{title: "Setting",headerShown: false, tabBarIcon: ({color}) => (<Ionicons name='settings-outline' size={30} />)}}
         />
     </Tabs>
   )
