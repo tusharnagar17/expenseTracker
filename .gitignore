@@ -8,6 +8,8 @@ tasks.md
 android/
 ios/
 
+.vscode/ 
+
 # Expo
 .expo/
 dist/
