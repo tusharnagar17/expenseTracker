@@ -4,37 +4,135 @@ import {
   TouchableOpacity,
   LogBox,
   SafeAreaView,
+  TextInput,
 } from "react-native";
 import React from "react";
 // import { useSession } from '@/app/ctx'
 import { StyleSheet } from "react-native";
 import auth from "@react-native-firebase/auth";
-import { Link } from "expo-router";
+import { Link, router, usePathname } from "expo-router";
 import { LogOutService } from "@/services/auth";
+import { Image } from "expo-image";
+import {
+  AntDesign,
+  Entypo,
+  FontAwesome,
+  SimpleLineIcons,
+} from "@expo/vector-icons";
+import { useState } from "react";
+
+// import FeatherIcon from "react-native-vector-icons";
+interface AllOptionsProps {
+  name: string;
+  icon: React.JSX.Element;
+  location: string;
+}
+
+const AllOptions: AllOptionsProps[] = [
+  {
+    name: "Profile",
+    icon: <AntDesign name="user" size={35} color="rgb(135, 206, 235)" />,
+    location: "profile",
+  },
+  {
+    name: "Account",
+    icon: <Entypo name="user" size={35} color="rgba(144,238,144,1)" />,
+    location: "account",
+  },
+  {
+    name: "Feedback & Support",
+    icon: <FontAwesome name="globe" size={35} color="#FF6347" />,
+    location: "feedback",
+  },
+  {
+    name: "about",
+    icon: <AntDesign name="question" size={35} />,
+    location: "about",
+  },
+];
 
 export default function setting() {
   // const {signOut } = useSession()
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+
+  const redirectLocation = (data: string) => {
+    router.push(`/setting/${data}`);
+  };
 
   return (
     <SafeAreaView
       style={{
         flex: 1,
         marginHorizontal: 5,
-        marginTop: 30,
-        position: "relative",
+        marginTop: 60,
+        // position: "relative",
       }}
     >
-      <View style={styles.ViewTab}>
-        <Link href="/setting/profile">
-          <Text style={styles.ViewText}>Profile</Text>
-        </Link>
-      </View>
-      {/* <View style={styles.ViewTab}>
-        <Link href="/setting/details">
-          <Text style={styles.ViewText}>Details</Text>
-        </Link>
-      </View> */}
+      <View style={{ flex: 1, backgroundColor: "white" }}>
+        {/* Profile details */}
+        <View
+          style={{
+            alignItems: "center",
+            paddingTop: 50,
+            backgroundColor: "white",
+          }}
+        >
+          <View style={{ position: "relative" }}>
+            <View
+              style={{
+                height: 120,
+                width: 120,
+                backgroundColor: "black",
+                borderRadius: 100,
+                borderColor: "#FF6347",
+                borderWidth: 5,
+              }}
+            ></View>
 
+            {/* <FontAwesome name="pencil" size={30} style={styles.imgPencil} /> */}
+          </View>
+          <Text style={{ fontSize: 20, fontWeight: "700", marginTop: 20 }}>
+            {name ? name : "tempName"}
+          </Text>
+          <Text style={{ fontSize: 16, fontWeight: "300", paddingTop: 5 }}>
+            {email ? email : "tempEmail@gmail.com"}{" "}
+          </Text>
+        </View>
+
+        <View></View>
+        {/* Options */}
+        {AllOptions.map((item: AllOptionsProps, ind: number) => (
+          <View
+            key={ind}
+            style={{
+              borderRadius: 20,
+              backgroundColor: "white",
+              borderBottomWidth: 0.2,
+              paddingVertical: 20,
+              paddingHorizontal: 20,
+              marginVertical: 10,
+              position: "relative",
+            }}
+          >
+            <TouchableOpacity
+              style={{ flexDirection: "row", alignItems: "center", gap: 15 }}
+              onPress={() => redirectLocation(item.location)}
+            >
+              {item.icon}
+              <Text>{item.name}</Text>
+
+              <SimpleLineIcons
+                name="arrow-right"
+                size={20}
+                style={{ position: "absolute", right: 0 }}
+              />
+            </TouchableOpacity>
+          </View>
+        ))}
+      </View>
+
+      {/* Logout button */}
       <TouchableOpacity
         onPress={LogOutService}
         style={{ position: "absolute", bottom: 20, right: 40, width: "80%" }}
@@ -46,16 +144,8 @@ export default function setting() {
 }
 
 const styles = StyleSheet.create({
-  ViewTab: {
-    borderWidth: 0.5,
-    paddingHorizontal: 15,
-    paddingVertical: 15,
-    marginVertical: 10,
-    borderRadius: 30,
-  },
-  ViewText: {
-    fontSize: 18,
-  },
+  ViewTab: {},
+  ViewText: {},
   logOutBtn: {
     backgroundColor: "orange",
     fontSize: 20,
@@ -66,5 +156,17 @@ const styles = StyleSheet.create({
     width: "100%",
     textAlign: "center",
     alignItems: "flex-end",
+  },
+  imgPencil: {
+    paddingHorizontal: 7,
+    paddingVertical: 3,
+    borderWidth: 1,
+    borderColor: "blue",
+    position: "absolute",
+    borderRadius: 50,
+    color: "white",
+    backgroundColor: "blue",
+    bottom: 0,
+    right: 7,
   },
 });

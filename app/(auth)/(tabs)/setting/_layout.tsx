@@ -8,10 +8,14 @@ export default function SettingLayout() {
     <Stack>
       <Stack.Screen
         name="index"
-        options={{ headerTitle: "Settings", headerTitleAlign: "center" }}
+        options={{
+          headerShown: false,
+          headerTitle: "Settings",
+          headerTitleAlign: "center",
+        }}
       />
       {/* <Stack.Screen name='details' /> */}
-      <Stack.Screen name="profile" />
+      {/* <Stack.Screen name="profile" /> */}
     </Stack>
   );
 }

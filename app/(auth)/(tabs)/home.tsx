@@ -12,6 +12,8 @@ import HomeTransaction from "@/components/HomeTransaction";
 import HomeOverview from "@/components/HomeOverview";
 import HomeHeader from "@/components/HomeHeader";
 import { fetchProfileData, fetchSessionFirst } from "@/services/database";
+import { Image } from "expo-image";
+import { LinearGradient } from "expo-linear-gradient";
 
 export default function Home() {
   const [refreshing, setRefreshing] = useState(false);
@@ -29,17 +31,34 @@ export default function Home() {
   return (
     <ScrollView
       nestedScrollEnabled={true}
-      style={{ flex: 1, marginTop: 60, margin: 10 }}
+      style={{
+        flex: 1,
+        marginTop: 60,
+        position: "relative",
+      }}
       refreshControl={
         <RefreshControl refreshing={refreshing} onRefresh={handleRefresh} />
       }
     >
-      <HomeHeader />
-      {/* HomeOverview Section */}
-      <HomeOverview />
+      {/* <LinearGradient
+        colors={["rgba(255,129,103,0.1)", "rgba(255,129,103,0.05)"]}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 1 }}
+        style={{
+          position: "absolute",
+          backgroundColor: "rgba(255, 137, 0,0.1)",
+          height: "100%",
+          width: "100%",
+        }}
+      ></LinearGradient> */}
+      <View style={{ margin: 10 }}>
+        <HomeHeader />
+        {/* HomeOverview Section */}
+        <HomeOverview />
 
-      {/* AllTrasactions Section */}
-      <HomeTransaction />
+        {/* AllTrasactions Section */}
+        <HomeTransaction />
+      </View>
       <StatusBar style="auto" translucent={true} />
     </ScrollView>
   );
