@@ -16,6 +16,7 @@ import { Image } from "expo-image";
 import {
   AntDesign,
   Entypo,
+  EvilIcons,
   FontAwesome,
   SimpleLineIcons,
 } from "@expo/vector-icons";
@@ -55,6 +56,9 @@ export default function setting() {
   // const {signOut } = useSession()
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [image, setImage] = useState("");
+
+  const unknownImage = require("./../../../../asset/images/unknown.jpeg");
 
   const redirectLocation = (data: string) => {
     router.push(`/setting/${data}`);
@@ -83,12 +87,27 @@ export default function setting() {
               style={{
                 height: 120,
                 width: 120,
-                backgroundColor: "black",
                 borderRadius: 100,
                 borderColor: "#FF6347",
                 borderWidth: 5,
+                justifyContent: "center",
+                alignItems: "center",
               }}
-            ></View>
+            >
+              {image ? (
+                ""
+              ) : (
+                <Image
+                  source={unknownImage}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    borderRadius: 100,
+                  }}
+                  alt="unknown user"
+                />
+              )}
+            </View>
 
             {/* <FontAwesome name="pencil" size={30} style={styles.imgPencil} /> */}
           </View>

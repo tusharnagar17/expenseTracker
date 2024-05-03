@@ -76,7 +76,10 @@ const HomeTransaction = () => {
       router.push(`/expenses/${data}`);
     };
     return (
-      <TouchableOpacity onPress={() => redirectExpenses(detail.name)}>
+      <TouchableOpacity
+        onPress={() => redirectExpenses(detail.name)}
+        key={index}
+      >
         <View
           style={{
             borderWidth: 1,
