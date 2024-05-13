@@ -78,7 +78,7 @@ const HomeTransaction = () => {
     return (
       <TouchableOpacity
         onPress={() => redirectExpenses(detail.name)}
-        key={index}
+        key={`${detail.latestDate}-${index}`}
       >
         <View
           style={{
@@ -90,7 +90,7 @@ const HomeTransaction = () => {
             borderRadius: 20,
             justifyContent: "space-between",
           }}
-          key={index}
+          key={`${detail.name}-${detail.latestDate}-${index}`}
         >
           {/* Icons and category */}
           <View

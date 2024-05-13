@@ -2,6 +2,7 @@ import { Redirect, router, Slot, Stack } from "expo-router";
 import { Text } from "react-native";
 import { useState, useEffect } from "react";
 import auth, { FirebaseAuthTypes } from "@react-native-firebase/auth";
+import {} from "@react-native-firebase/app";
 
 export default function AppLayout() {
   // Set an initializing state whilst Firebase connects

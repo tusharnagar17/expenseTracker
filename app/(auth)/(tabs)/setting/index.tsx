@@ -82,41 +82,58 @@ export default function setting() {
             backgroundColor: "white",
           }}
         >
-          <View style={{ position: "relative" }}>
-            <View
-              style={{
-                height: 120,
-                width: 120,
-                borderRadius: 100,
-                borderColor: "#FF6347",
-                borderWidth: 5,
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              {image ? (
-                ""
-              ) : (
-                <Image
-                  source={unknownImage}
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    borderRadius: 100,
-                  }}
-                  alt="unknown user"
-                />
-              )}
+          <TouchableOpacity onPress={() => router.push("/setting/profile")}>
+            <View style={{ position: "relative" }}>
+              <View
+                style={{
+                  height: 120,
+                  width: 120,
+                  borderRadius: 100,
+                  borderColor: "#FF6347",
+                  borderWidth: 5,
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                {image ? (
+                  ""
+                ) : (
+                  <Image
+                    source={unknownImage}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      borderRadius: 100,
+                    }}
+                    alt="unknown user"
+                  />
+                )}
+              </View>
+
+              {/* <FontAwesome name="pencil" size={30} style={styles.imgPencil} /> */}
             </View>
 
-            {/* <FontAwesome name="pencil" size={30} style={styles.imgPencil} /> */}
-          </View>
-          <Text style={{ fontSize: 20, fontWeight: "700", marginTop: 20 }}>
-            {name ? name : "tempName"}
-          </Text>
-          <Text style={{ fontSize: 16, fontWeight: "300", paddingTop: 5 }}>
-            {email ? email : "tempEmail@gmail.com"}{" "}
-          </Text>
+            <Text
+              style={{
+                fontSize: 20,
+                fontWeight: "700",
+                marginTop: 20,
+                textAlign: "center",
+              }}
+            >
+              {name ? name : "Add Name"}
+            </Text>
+            <Text
+              style={{
+                fontSize: 16,
+                textAlign: "center",
+                fontWeight: "300",
+                paddingTop: 5,
+              }}
+            >
+              {email ? email : "Add Email"}{" "}
+            </Text>
+          </TouchableOpacity>
         </View>
 
         <View></View>

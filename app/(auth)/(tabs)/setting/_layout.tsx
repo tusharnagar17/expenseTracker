@@ -14,8 +14,14 @@ export default function SettingLayout() {
           headerTitleAlign: "center",
         }}
       />
-      {/* <Stack.Screen name='details' /> */}
-      {/* <Stack.Screen name="profile" /> */}
+      <Stack.Screen name="about" />
+      <Stack.Screen name="account" />
+      <Stack.Screen name="feedback" />
+
+      <Stack.Screen
+        name="profile"
+        options={{ headerTitle: "Edit Profile", headerTitleAlign: "center" }}
+      />
     </Stack>
   );
 }

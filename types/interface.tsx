@@ -14,3 +14,10 @@ export interface ProfileProps {
   name: string;
   income: string;
 }
+
+export interface ProfileInfoProps {
+  name: string;
+  email: string;
+  phone: string;
+  location: string;
+}
