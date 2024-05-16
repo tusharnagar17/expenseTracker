@@ -173,7 +173,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Tushar Nagar - [@twitter](https://twitter.com/tusharnagar_17) -
 
-Project Link: [https://github.com/tusharnagar17/codeit](https://github.com/tusharnagar17/expenseTracker)
+Project Link: [link](https://github.com/tusharnagar17/expenseTracker)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
